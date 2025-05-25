@@ -1,7 +1,7 @@
 [package]
 name = "paper-plane"
 version = "0.1.0-beta.5"
-authors = ["Marco Melorio <marco.melorio@protonmail.com>", "Marcus Behrendt <marcus.behrendt.86@gmail.com>"]
+authors = ["Marco Melorio <marco.melorio@protonmail.com>", "Marcus Behrendt <marcus.behrendt.86@gmail.com>", "Fedor Finenko <finenkofedor@gmail.com>"]
 edition = "2021"
 
 [dependencies]
@@ -29,3 +29,7 @@ thiserror = "1"
 [profile.release]
 lto = true
 codegen-units = 1
+
+[build-dependencies]
+meson-next = "1.2.3"
+

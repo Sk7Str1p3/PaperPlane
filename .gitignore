@@ -10,5 +10,6 @@ src/config.rs
 .flatpak/
 .flatpak-builder/
 .vscode/
+.direnv
 
 /subprojects/blueprint-compiler

@@ -15,7 +15,7 @@ dependency('gio-2.0', version: '>= 2.72')
 dependency('gtk4', version: '>= 4.12')
 dependency('libadwaita-1', version: '>= 1.4')
 dependency('shumate-1.0', version: '>= 1')
-dependency('tdjson', version: '== 1.8.19')
+dependency('tdjson', version: '>= 1.8.19')
 
 glib_compile_resources = find_program('glib-compile-resources', required: true)
 glib_compile_schemas = find_program('glib-compile-schemas', required: true)
@@ -55,12 +55,6 @@ else
   version_suffix = ''
   application_id = base_id
 endif
-
-meson.add_dist_script(
-  'build-aux/dist-vendor.sh',
-  meson.project_build_root() / 'meson-dist' / meson.project_name() + '-' + version,
-  meson.project_source_root()
-)
 
 subdir('data')
 subdir('po')

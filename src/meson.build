@@ -11,19 +11,21 @@ global_conf.set('TG_API_ID', tg_api_id)
 global_conf.set_quoted('TG_API_HASH', tg_api_hash)
 config = configure_file(
   input: 'config.rs.in',
-  output: 'config.rs',
+  output: 'cfg.rs',
   configuration: global_conf
 )
 # Copy the config.rs output to the source directory.
 run_command(
   'cp',
-  meson.project_build_root() / 'src' / 'config.rs',
-  meson.project_source_root() / 'src' / 'config.rs',
+  meson.project_build_root() / 'src' / 'cfg.rs',
+  meson.project_source_root() / 'src' / 'cfg.rs',
   check: true
 )
 
 cargo_options = [ '--manifest-path', meson.project_source_root() / 'Cargo.toml' ]
 cargo_options += [ '--target-dir', meson.project_build_root() / 'src' ]
+cargo_options += [ '--no-default-features' ]
+cargo_options += [ '--features', 'meson' ]
 
 if get_option('profile') == 'default'
   cargo_options += [ '--release' ]

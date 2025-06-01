@@ -87,6 +87,17 @@
             nativeBuildInputs = with pkgs; [
               pkg-config
               rustPlatform.bindgenHook
+              (rustPlatform.buildRustPackage rec {
+                pname = "cargo-post";
+                version = "0.1.7";
+                src = fetchFromGitHub {
+                  owner = "phil-opp";
+                  repo = "cargo-post";
+                  rev = "v${version}";
+                  hash = "sha256-ha83j6IjvwcRQ7lGKRsE4c2VOiB4Vl5aMXPF5dKeYww=";
+                };
+                cargoHash = "sha256-tzHP2r+l+n3d1DrMOwhVDqU221TQE1tx5OObQ6dAjlE=";
+              })
               meson
               ninja
               blueprint-compiler
@@ -95,8 +106,63 @@
               libxml2.bin
             ];
           };
+
+        # Build dependencies only, so we will be able to reuse them further
+        cargoArtifacts = craneLib.buildDepsOnly common;
+
+        # Build the actual crate itself, reusing the dependency
+        # artifacts from above.
+        paper-plane = craneLib.buildPackage (
+          common
+          // {
+            inherit cargoArtifacts;
+            cargoExtraArgs = "--no-default-features --features build";
+          }
+        );
       in
       {
+        checks = {
+          # Build the crate as part of `nix flake check` for convenience
+          build = paper-plane;
+
+          # Run clippy (and deny all warnings) on the crate source,
+          # again, reusing the dependency artifacts from above.
+          #
+          # Note that this is done as a separate derivation so that
+          # we can block the CI if there are issues here, but not
+          # prevent downstream consumers from building our crate by itself.
+          clippy = craneLib.cargoClippy (
+            common
+            // {
+              inherit cargoArtifacts;
+              cargoClippyExtraArgs = "--all-targets -- --deny warnings";
+            }
+          );
+
+          docs = craneLib.cargoDoc (common // { inherit cargoArtifacts; });
+
+          # Check formatting
+          fmt = craneLib.cargoFmt { inherit src; };
+
+          tomlFmt = craneLib.taploFmt {
+            src = pkgs.lib.sources.sourceFilesBySuffices src [ ".toml" ];
+            # taplo arguments can be further customized below as needed
+            # taploExtraArgs = "--config ./taplo.toml";
+          };
+
+          # Audit dependencies
+          audit = craneLib.cargoAudit { inherit src advisory-db; };
+
+          # Audit licenses
+          deny = craneLib.cargoDeny { inherit src; };
+        };
+
+        packages = {
+          default = paper-plane;
+        };
+
+        apps.default = flake-utils.lib.mkApp { drv = paper-plane; };
+
         devShells.default = craneLib.devShell {
           # Inherit inputs from checks.
           checks = self.checks.${system};

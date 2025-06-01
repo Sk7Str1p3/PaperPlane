@@ -1,0 +1,17 @@
+diff --git a/meson.build b/meson.build
+index 0dde8b1..150fdb1 100644
+--- a/meson.build
++++ b/meson.build
+@@ -56,12 +56,6 @@ else
+   application_id = base_id
+ endif
+
+-meson.add_dist_script(
+-  'build-aux/dist-vendor.sh',
+-  meson.project_build_root() / 'meson-dist' / meson.project_name() + '-' + version,
+-  meson.project_source_root()
+-)
+-
+ subdir('data')
+ subdir('po')
+ subdir('src')

@@ -16,7 +16,6 @@ mod imp {
 
     #[derive(Debug, Default, Properties)]
     #[properties(wrapper_type = super::ChatFolderList)]
-
     pub(crate) struct ChatFolderList {
         pub(super) list: RefCell<Vec<model::ChatList>>,
         #[property(get, set, construct_only)]

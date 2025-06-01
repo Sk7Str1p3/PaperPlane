@@ -1,8 +1,18 @@
 [package]
+authors = [
+  "Marco Melorio <marco.melorio@protonmail.com>",
+  "Marcus Behrendt <marcus.behrendt.86@gmail.com>",
+  "Fedor Finenko <finenkofedor@gmail.com>",
+]
+edition = "2021"
 name = "paper-plane"
 version = "0.1.0-beta.5"
-authors = ["Marco Melorio <marco.melorio@protonmail.com>", "Marcus Behrendt <marcus.behrendt.86@gmail.com>"]
-edition = "2021"
+
+# This needs for support of both cargo and meson build
+[features]
+build   = []
+default = ["build"]
+meson   = []
 
 [dependencies]
 adw = { version = "0.6", package = "libadwaita", features = ["v1_5"] }
@@ -11,12 +21,19 @@ async-channel = "2"
 ellipse = "0.2"
 futures = { version = "0.3", default-features = false }
 gettext-rs = { version = "0.7", features = ["gettext-system"] }
-gtk = { version = "0.8", package = "gtk4", features = ["gnome_45", "blueprint"] }
-image = { version = "0.25", default-features = false, features = ["jpeg", "png", "webp"] }
+gtk = { version = "0.8", package = "gtk4", features = [
+  "gnome_45",
+  "blueprint",
+] }
+image = { version = "0.25", default-features = false, features = [
+  "jpeg",
+  "png",
+  "webp",
+] }
 indexmap = "2"
 locale_config = "0.3"
 log = "0.4"
-ori = { git = "https://github.com/paper-plane-developers/origami.git", tag="v0.8.1", package = "origami" }
+ori = { git = "https://github.com/paper-plane-developers/origami.git", tag = "v0.8.1", package = "origami" }
 pretty_env_logger = "0.5"
 qrcode-generator = { version = "4", default-features = false }
 regex = "1"
@@ -27,5 +44,9 @@ temp-dir = "0.1"
 thiserror = "1"
 
 [profile.release]
-lto = true
 codegen-units = 1
+lto           = true
+
+[build-dependencies]
+duct       = "1.0.0"
+pkg-config = "0.3.32"

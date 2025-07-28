@@ -1,7 +1,7 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# paper-plane - modern Telegram client made with libAdwaita.
+# Copyright (C) 2025-2025
 # This file is distributed under the same license as the paper-plane package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Finenko Fedor <finenkofedor@gmail.com>, 2025.
 #
 msgid ""
 msgstr ""

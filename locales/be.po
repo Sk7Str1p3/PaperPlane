@@ -20,20 +20,6 @@ msgstr ""
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.18-dev\n"
 
-#: data/app.drey.PaperPlane.desktop.in.in:3
-#: data/app.drey.PaperPlane.metainfo.xml.in.in:7
-msgid "Paper Plane"
-msgstr "Paper Plane"
-
-#: data/app.drey.PaperPlane.desktop.in.in:4
-#: data/app.drey.PaperPlane.metainfo.xml.in.in:8
-msgid "Chat over Telegram on a modern and elegant client"
-msgstr ""
-
-#: data/app.drey.PaperPlane.desktop.in.in:9
-msgid "Gnome;GTK;telegram;tg;chat;im;messaging;messenger;"
-msgstr ""
-
 #: data/app.drey.PaperPlane.gschema.xml.in:6
 #: data/app.drey.PaperPlane.gschema.xml.in:7
 msgid "Default window width"

@@ -1,0 +1,53 @@
+# paper-plane - modern Telegram client made with libAdwaita.
+# Copyright (C) 2025-2025
+# This file is distributed under the same license as the paper-plane package.
+# Finenko Fedor <finenkofedor@gmail.com>, 2025.
+# Check if something need to be translated at
+# https://hosted.weblate.org/projects/paper-plane/main/<lang>
+# if you want to help
+
+_version: 2
+
+name:
+  nb_NO: Paper Plane
+  it: Paper Plane
+  es: Paper Plane
+  he: Paper Plane
+  ca: Paper Plane
+  pt_BR: Paper Plane
+  fr: Paper Plane
+  fi: Paper Plane
+  de: Paper Plane
+  sv: Paper Plane
+  ru: Paper Plane
+  id: Paper Plane
+  fa: هواپیمای کاغذی
+  oc: Paper Plane
+  eu: Paper Plane
+  pl: Paper Plane
+  si: ටෙලිග්‍රෑන්ඩ්
+  ar: بيبر بلين
+  zh_Hans: Paper Plane
+  uk: Paper Plane
+  tr: Paper Plane
+  nl: Paper Plane
+  be: Paper Plane
+  pt: Paper Plane
+  el: Paper Plane
+  ml: Paper Plane
+
+comment:
+  es: Chatea a través de Telegram en un cliente moderno y elegante
+  pt_BR: Converse pelo Telegram em um cliente moderno e elegante
+  de: Chatten über Telegram mit einem modernen und eleganten Client
+  ru: Общайтесь в Telegram с помощью современного и элегантного клиента
+  pl: Rozmawiaj przez nowoczesnego i eleganckiego klienta Telegrama
+  uk: Спілкуйтеся Телеграмом через сучасний та вишуканий клієнт
+
+keywords:
+  es: Gnome;GTK;telegram;tg;chat;im;mensajería;messenger;
+  pt_BR: Gnome;GTK;telegram;tg;chat;im;messaging;messenger;
+  ru: Gnome;GTK;telegram;tg;chat;im;messaging;messenger;чат;общение;мессенджер;
+  pl: Gnome;GTK;telegram;tg;chat;im;messaging;messenger;
+  uk: Gnome;GTK;telegram;tg;chat;im;messaging;messenger;
+  nl: Gnome;GTK;telegram;tg;chat;im;messaging;messenger;berichten;

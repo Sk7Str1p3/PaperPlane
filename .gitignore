@@ -1,5 +1,6 @@
 target/
 build/
+result
 _build/
 builddir/
 build-aux/app
@@ -10,5 +11,6 @@ src/config.rs
 .flatpak/
 .flatpak-builder/
 .vscode/
+.direnv
 
 /subprojects/blueprint-compiler

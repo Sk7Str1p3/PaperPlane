@@ -1,16 +1,4 @@
 target/
 build/
 result
-_build/
-builddir/
-build-aux/app
-build-aux/.flatpak-builder/
-src/config.rs
-*.ui.in~
-*.ui~
-.flatpak/
-.flatpak-builder/
-.vscode/
 .direnv
-
-/subprojects/blueprint-compiler
